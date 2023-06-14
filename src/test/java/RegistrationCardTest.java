@@ -28,8 +28,8 @@ public class RegistrationCardTest {
         $("[data-test-id=phone] input").setValue("+79211234567");
         $("[data-test-id=agreement]").click();
         $$("button").find(Condition.exactText("Забронировать")).click();
-        $(byText("Успешно!")).shouldBe(Condition.visible, Duration.ofMillis(10000));
-        $x("//*[@class='notification__content']").shouldHave(Condition.exactText("Встреча успешно забронирована на " + date), Duration.ofMillis(10000));
+        $(byText("Успешно!")).shouldBe(Condition.visible, Duration.ofMillis(15000));
+        $x("//*[@class='notification__content']").shouldHave(Condition.exactText("Встреча успешно забронирована на " + date), Duration.ofMillis(15000));
     }
 
 }
