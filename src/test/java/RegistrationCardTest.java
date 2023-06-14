@@ -16,25 +16,12 @@ public class RegistrationCardTest {
     }
     @Test
     void FirstTest() {
-        String date = generateDate(1, "dd.MM.yyyy");
-        open("http://localhost:9999");
-        $("[data-test-id=city] input").setValue("Москва");
-        $(byText("Москва")).shouldBe(Condition.visible).click();
-        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date);
-        $("[data-test-id=name] input").setValue("Виктор Плюшкин");
-        $("[data-test-id=phone] input").setValue("+79211234567");
-        $("[data-test-id=agreement]").click();
-        $$("button").find(Condition.exactText("Забронировать")).click();
-        $(byText("Успешно!")).shouldBe(Condition.visible, Duration.ofMillis(10000));
-        $x("//*[@class='notification__content']").shouldHave(Condition.exactText("Встреча успешно забронирована на " + date), Duration.ofMillis(10000));
-    }
-    @Test
-    void SecondTest() {
         String date = generateDate(5, "dd.MM.yyyy");
         open("http://localhost:9999");
-        $("[data-test-id=city] input").setValue("Мо");
-        $(byText("Москва")).shouldBe(Condition.visible).click();
+        $("[data-test-id=city] input").setValue("Москва");
+
+       $(byText("Москва")).shouldBe(Condition.visible).click();
+
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(date);
         $("[data-test-id=name] input").setValue("Виктор Плюшкин");
@@ -44,4 +31,5 @@ public class RegistrationCardTest {
         $(byText("Успешно!")).shouldBe(Condition.visible, Duration.ofMillis(10000));
         $x("//*[@class='notification__content']").shouldHave(Condition.exactText("Встреча успешно забронирована на " + date), Duration.ofMillis(10000));
     }
+
 }
